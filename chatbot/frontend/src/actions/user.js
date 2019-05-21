@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { GET_USERS, DELETE_USER } from './types'
+import { GET_USERS, DELETE_USER, ADD_USER } from './types'
 
 //Get users
 export const getUsers = () => dispatch => {
@@ -21,6 +21,17 @@ export const deleteUser = (id) => dispatch => {
         dispatch({
             type: DELETE_USER,
             payload: id
+        });
+    }).catch(err => console.log(err));
+}
+
+//Add user
+export const addUser = (user) => dispatch => {
+    axios.post('/api/users/', user)
+    .then(res => {
+        dispatch({
+            type: ADD_USER,
+            payload: res.data
         });
     }).catch(err => console.log(err));
 }

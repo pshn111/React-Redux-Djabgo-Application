@@ -7,7 +7,9 @@ import { getUsers, deleteUser } from '../../actions/user'
 
 export class Home extends Component {
   static propTypes = {
-    users:PropTypes.array.isRequired
+    users:PropTypes.array.isRequired,
+    getUsers: PropTypes.func.isRequired,
+    deleteUser: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -17,7 +19,7 @@ export class Home extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="my-5 pt-5">Users</h2>
+        <h2>Users</h2>
         <table className="table table striped">
           <thead>
             <tr>
