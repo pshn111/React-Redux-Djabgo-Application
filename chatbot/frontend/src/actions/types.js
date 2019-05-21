@@ -1,1 +1,1 @@
-export const GET_QUESTION = "GET_QUESTION";
+export const GET_USERS = "GET_USERS";

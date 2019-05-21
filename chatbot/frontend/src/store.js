@@ -10,7 +10,7 @@ const middelware = [thunk]
 const store = createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(...middelware)
+    composeWithDevTools(applyMiddleware(...middelware))
 );
 
 export default store;

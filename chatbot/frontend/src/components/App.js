@@ -8,16 +8,16 @@ import store from '../store'
 
 class App extends Component {
     render() {
-        <Provider>
-            return (
+        return (
+            <Provider store={store}>
                 <Fragment>
                     <Header />
                     <div className="container">
                         <Home />
                     </div>
                 </Fragment>
-            );
-        </Provider>
+            </Provider>
+        );      
     }
 }
 

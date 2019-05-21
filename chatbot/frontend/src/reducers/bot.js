@@ -1,15 +1,15 @@
-import { GET_QUESTION } from '../actions/types.js'
+import { GET_USERS } from '../actions/types.js'
 
 const initalState = {
-    question: []
+    users: []
 }
 
 export default function(state = initalState, action) {
     switch(action.type){
-        case GET_QUESTION:
+        case GET_USERS:
             return {
                 ...state,
-                question: action.payload
+                users: action.payload
             };
         default:
             return state;
