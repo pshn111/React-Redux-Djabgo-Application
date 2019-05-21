@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getUsers } from '../../actions/user'
+import { getUsers, deleteUser } from '../../actions/user'
 
 
 
@@ -35,7 +35,7 @@ export class Home extends Component {
                 <td>{user.user_name}</td>
                 <td>{user.email}</td>
                 <td>{user.create_at}</td>
-                <td><button className="btn btn-danger btn-sm">Delete</button></td>
+                <td><button onClick={this.props.deleteUser.bind(this, user.id)} className="btn btn-danger btn-sm">Delete</button></td>
               </tr>
             )) }
           </tbody>
@@ -48,7 +48,7 @@ const mapStateToProps = state => ({
   users: state.bot.users
 })
 
-export default connect(mapStateToProps, { getUsers })(Home);
+export default connect(mapStateToProps, { getUsers, deleteUser })(Home);
 
 // export default function Home() {
 //   return (
