@@ -26,7 +26,7 @@ export class AddUser extends Component {
   render() {
       const {user_name, email, password} = this.state;
     return (
-        <div className="card card-body mt-5 mb-4">
+        <div className="card card-body">
         <h2>Add User</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
