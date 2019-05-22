@@ -21,6 +21,11 @@ export class AddUser extends Component {
         const {user_name, email, password} = this.state;
         const user = {user_name, email, password};
         this.props.addUser(user);
+        this.setState({
+          user_name: '',
+          email: '',
+          password: ''
+        });
     };
 
   render() {
