@@ -1,11 +1,18 @@
-from .models import User
+from .models import Users
 from rest_framework import viewsets, permissions
-from .serializers import UserSerializer
+from .serializers import UsersSerializer
 
 # user Viewset
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+class UsersViewSet(viewsets.ModelViewSet):
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
-    serializer_class = UserSerializer
+
+    serializer_class = UsersSerializer
+
+    def get_queryset(self):
+        return self.request.user.users.all()
+
+   
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
