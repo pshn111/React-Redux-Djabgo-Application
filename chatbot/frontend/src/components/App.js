@@ -6,9 +6,10 @@ import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
 import Header from './layout/Header';
-import Home from './layout/Home';
-import Add from './layout/AddUser';
+import Dashboard from './layout/Dashboard';
 import Alerts from './layout/Alerts';
+import Login from './accounts/Login';
+import Register from './accounts/Register';
 
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -28,14 +29,15 @@ class App extends Component {
                     <Router>
                         <Fragment>
                             <Header />
-                            
+                            <Alerts />
                             <div className="container">
-                                <Alerts />
+                                {/* <Dashboard /> */}
                                 <Switch>
-                                    <Route exact path="/" Component={Home} />
+                                    <Route exact path="/" component={Dashboard} />
+                                    <Route exact path="/login" component={Login} />
+                                    <Route exact path="/register" component={Register} />
                                 </Switch>
-                                {/* <Add />
-                                <Home /> */}
+                                
                             </div>
                         </Fragment>
                     </Router>
