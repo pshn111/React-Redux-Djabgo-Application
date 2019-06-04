@@ -11,7 +11,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     serializer_class = UsersSerializer
 
     def get_queryset(self):
-        return self.request.user.users.all()
+        return self.request.user.user_names.all()
 
    
     def perform_create(self, serializer):
